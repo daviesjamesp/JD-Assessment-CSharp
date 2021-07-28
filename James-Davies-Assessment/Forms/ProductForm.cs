@@ -58,6 +58,7 @@ namespace James_Davies_Assessment
             productPartsGridView.DataSource = TargetProduct.AssociatedParts;
         }
 
+        // Searches part list by ID reference
         private void partSearchButton_Click(object sender, EventArgs e)
         {
             // Resets to full view if search box empty
@@ -91,6 +92,7 @@ namespace James_Davies_Assessment
             partSearchTextBox.Text = "";
         }
 
+        // Adds selected part to product's associated parts list
         private void addPartButton_Click(object sender, EventArgs e)
         {
             if (partGridView.SelectedRows.Count == 0)
@@ -104,6 +106,7 @@ namespace James_Davies_Assessment
                 MainInventory.LookupPart(int.Parse(partGridView.SelectedRows[0].Cells[0].Value.ToString())));
         }
 
+        //  Removes selected part from associated parts list
         private void partDeleteButton_Click(object sender, EventArgs e)
         {
             if (productPartsGridView.SelectedRows.Count == 0)
@@ -113,10 +116,17 @@ namespace James_Davies_Assessment
                 return;
             }
 
+            // Confirms delete
+            var confirmation = MessageBox.Show(
+                "Are you sure you want to delete?", "Confirm",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirmation != DialogResult.Yes) { return; }
+
             TargetProduct.RemoveAssociatedPart(
                 int.Parse(productPartsGridView.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
+        // Validates data returns a product then closes form
         private void saveButton_Click(object sender, EventArgs e)
         {
             try
@@ -134,6 +144,7 @@ namespace James_Davies_Assessment
             this.Close();
         }
 
+        // Closes form without returning an object
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -191,6 +202,8 @@ namespace James_Davies_Assessment
             savedProduct.Min     = int.Parse(minTextBox.Text);
             savedProduct.Name    = nameTextBox.Text;
             savedProduct.Price   = double.Parse(priceTextBox.Text);
+            foreach (var part in TargetProduct.AssociatedParts)
+                { savedProduct.AddAssociatedPart(part); }
 
             ReturnProduct = savedProduct;
         }

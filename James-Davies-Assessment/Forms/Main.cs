@@ -20,7 +20,8 @@ namespace James_Davies_Assessment
             MainInventory = new Inventory();
         }
 
-        // Currently set up to test the modularity of the PartForm, successful
+        // Binds data into grid views on load.
+        // Loads sample data into inventory for assessment purposes
         private void Main_Load(object sender, EventArgs e)
         {
             // FOR SAMPLE DATA INITIALIZATION, DO NOT REMOVE
@@ -102,7 +103,7 @@ namespace James_Davies_Assessment
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmation != DialogResult.Yes) { return; }
 
-            var deleteOperation = MainInventory.RemoveProduct(productGridView.SelectedRows[0].Index);
+            var deleteOperation = MainInventory.RemoveProduct(int.Parse(productGridView.SelectedRows[0].Cells[0].Value.ToString()));
             if (!deleteOperation)
             {
                 MessageBox.Show("Product could not be removed. Check associated parts list.", "Error",
@@ -125,6 +126,7 @@ namespace James_Davies_Assessment
             MainInventory.AddPart(returnedPart);
         }
 
+        // Loads part form with selected part for modification
         private void partModifyButton_Click(object sender, EventArgs e)
         {
             // Ensures an index is selected
@@ -146,6 +148,7 @@ namespace James_Davies_Assessment
             { MainInventory.UpdatePart(index, modifyPartForm.ReturnPart); }
         }
 
+        // Removes selected part from inventory
         private void partDeleteButton_Click(object sender, EventArgs e)
         {
             // Ensures an index is selected
@@ -162,7 +165,7 @@ namespace James_Davies_Assessment
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmation != DialogResult.Yes) { return; }
 
-            var deleteOperation = MainInventory.DeletePart(partGridView.SelectedRows[0].Index);
+            var deleteOperation = MainInventory.DeletePart(int.Parse(partGridView.SelectedRows[0].Cells[0].Value.ToString()));
             if (!deleteOperation)
             {
                 MessageBox.Show("Part could not be removed.", "Error",
@@ -170,6 +173,7 @@ namespace James_Davies_Assessment
             }
         }
 
+        // Searches part list by ID reference
         private void partSearchButton_Click(object sender, EventArgs e)
         {
             // Resets to full view if search box empty
@@ -203,12 +207,13 @@ namespace James_Davies_Assessment
             partSearchTextBox.Text = "";
         }
 
+        // Searches product list by ID reference
         private void productSearchButton_Click(object sender, EventArgs e)
         {
             // Resets to full view if search box empty
             if (productSearchTextBox.Text == "")
             {
-                productGridView.DataSource = MainInventory.AllParts;
+                productGridView.DataSource = MainInventory.Products;
                 return;
             }
 
@@ -234,6 +239,13 @@ namespace James_Davies_Assessment
             }
 
             productSearchTextBox.Text = "";
+        }
+
+
+        // Exits the application
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

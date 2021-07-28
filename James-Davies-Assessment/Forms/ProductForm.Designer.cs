@@ -164,6 +164,7 @@ namespace James_Davies_Assessment
             // 
             // partGridView
             // 
+            this.partGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.partGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partGridView.Location = new System.Drawing.Point(19, 56);
             this.partGridView.Margin = new System.Windows.Forms.Padding(4);
@@ -240,6 +241,7 @@ namespace James_Davies_Assessment
             // 
             // productPartsGridView
             // 
+            this.productPartsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productPartsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productPartsGridView.Location = new System.Drawing.Point(19, 30);
             this.productPartsGridView.Margin = new System.Windows.Forms.Padding(4);

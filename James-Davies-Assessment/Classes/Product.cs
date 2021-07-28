@@ -20,7 +20,7 @@ namespace James_Davies_Assessment
 
         // Constructor with all properties defined
         public Product(BindingList<Part> _associatedParts, int _productID, string _name,
-            double _price, int _inStock, int _max, int _min)
+            double _price, int _inStock, int _min, int _max)
         {
             AssociatedParts = _associatedParts;
             ProductID = _productID;

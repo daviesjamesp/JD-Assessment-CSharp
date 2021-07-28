@@ -79,18 +79,19 @@ namespace James_Davies_Assessment
         }
 
         // Removes part from inventory list, returns success boolean
-        public bool DeletePart(int index)
+        public bool DeletePart(int _partID)
         {
-            if (index < 0 || index >= AllParts.Count)
-                // Index out of range
+            var foundParts =
+                from part in AllParts
+                where part.PartID == _partID
+                select part;
+            if (foundParts.Count() != 0)
             {
-                return false;
-            }
-            else
-            {
-                AllParts.RemoveAt(index);
+                AllParts.Remove(foundParts.First());
                 return true;
             }
+            else
+            { return false; }
         }
 
         // Returns a part from the parts list via part ID reference

@@ -70,11 +70,13 @@ namespace James_Davies_Assessment
             }
         }
 
+        // Exits form without returning an object
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Validates data before returning an object and closing the form
         private void saveButton_Click(object sender, EventArgs e)
         {
             try
@@ -155,6 +157,7 @@ namespace James_Davies_Assessment
             ReturnPart = savedPart;
         }
 
+        // Changes the label for the source text box when the part source is changed
         private void inHouseRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             companyNameLabel.Visible = !inHouseRadioButton.Checked;

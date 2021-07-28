@@ -31,6 +31,7 @@ namespace James_Davies_Assessment
         {
             this.mainFormTabControl = new System.Windows.Forms.TabControl();
             this.productsTab = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.productAddButton = new System.Windows.Forms.Button();
             this.productModifyButton = new System.Windows.Forms.Button();
             this.productDeleteButton = new System.Windows.Forms.Button();
@@ -38,14 +39,14 @@ namespace James_Davies_Assessment
             this.productSearchButton = new System.Windows.Forms.Button();
             this.productSearchTextBox = new System.Windows.Forms.TextBox();
             this.partsTab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.partAddButton = new System.Windows.Forms.Button();
             this.partModifyButton = new System.Windows.Forms.Button();
             this.partDeleteButton = new System.Windows.Forms.Button();
             this.partGridView = new System.Windows.Forms.DataGridView();
             this.partSearchButton = new System.Windows.Forms.Button();
             this.partSearchTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Button();
             this.mainFormTabControl.SuspendLayout();
             this.productsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView)).BeginInit();
@@ -81,6 +82,15 @@ namespace James_Davies_Assessment
             this.productsTab.TabIndex = 0;
             this.productsTab.Text = "Products";
             this.productsTab.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 16);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Available Products:";
             // 
             // productAddButton
             // 
@@ -121,6 +131,7 @@ namespace James_Davies_Assessment
             this.productGridView.AllowUserToDeleteRows = false;
             this.productGridView.AllowUserToResizeColumns = false;
             this.productGridView.AllowUserToResizeRows = false;
+            this.productGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productGridView.Location = new System.Drawing.Point(9, 73);
             this.productGridView.Margin = new System.Windows.Forms.Padding(4);
@@ -168,6 +179,15 @@ namespace James_Davies_Assessment
             this.partsTab.Text = "Parts";
             this.partsTab.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Available Parts (All):";
+            // 
             // partAddButton
             // 
             this.partAddButton.Location = new System.Drawing.Point(695, 513);
@@ -207,6 +227,7 @@ namespace James_Davies_Assessment
             this.partGridView.AllowUserToDeleteRows = false;
             this.partGridView.AllowUserToResizeColumns = false;
             this.partGridView.AllowUserToResizeRows = false;
+            this.partGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.partGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partGridView.Location = new System.Drawing.Point(8, 70);
             this.partGridView.Margin = new System.Windows.Forms.Padding(4);
@@ -236,29 +257,23 @@ namespace James_Davies_Assessment
             this.partSearchTextBox.Size = new System.Drawing.Size(332, 22);
             this.partSearchTextBox.TabIndex = 0;
             // 
-            // label1
+            // exitButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Available Parts (All):";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Available Products:";
+            this.exitButton.Location = new System.Drawing.Point(8, 609);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(100, 28);
+            this.exitButton.TabIndex = 13;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 613);
+            this.ClientSize = new System.Drawing.Size(1045, 646);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.mainFormTabControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -295,6 +310,7 @@ namespace James_Davies_Assessment
         private System.Windows.Forms.DataGridView partGridView;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 
